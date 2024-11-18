@@ -1,0 +1,129 @@
+/* src/components/CategoryProducts.css */
+.category-products-container {
+    padding: 2rem;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+    width: calc(25% - 2rem);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-name {
+    font-weight: bold; /* Makes name bold */
+    display: block; /* Ensures it's on a new line */
+}
+
+.product-price {
+    font-size: 0.85rem; /* Smaller font size for the price */
+    color: #888; /* Less emphasis on the price */
+}
+
+.product-item button {
+    padding: 0.5rem;
+    border: none;
+    background-color: #ff6347;
+    color: #fff;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
+.back-button {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+}
+
+/* Modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 300ms, visibility 300ms;
+}
+
+.modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%; /* Or adjust to your preferred width */
+    max-width: 350px; /* Max width of the modal */
+    max-height: 90vh; /* Maximum height to ensure it doesn't go off screen */
+    overflow-y: auto; /* Allows scrolling inside the modal */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the content */
+}
+
+.modal-image {
+    width: 100%; /* Makes image responsive */
+    max-height: 200px; /* Maximum height for images */
+    object-fit: contain; /* Ensures the image fits without distorting aspect ratio */
+    margin-bottom: 20px; /* Adds space below the image */
+}
+
+.modal-name {
+    font-size: 1.5rem; /* Larger size for modal name */
+    font-weight: bold;
+    width: 100%; /* Ensures text aligns within the modal width */
+}
+
+.modal-description {
+    font-size: 1rem; /* Regular size for description */
+    width: 100%; /* Ensures text aligns within the modal width */
+}
+
+.modal-price {
+    font-size: 1.25rem; /* Larger size for modal price */
+    color: #444; /* Darker color for price in modal */
+    display: block; /* Ensures it's on a new line */
+    width: 100%; /* Ensures text aligns within the modal width */
+}
+
+.close-modal {
+    position:absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+.age-verification {
+    color: red; /* Ensures the text is red */
+    font-weight: bold; /* Optionally make it bold */
+}
+
+  

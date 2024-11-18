@@ -1,0 +1,28 @@
+/* src/components/SearchResults.css */
+.search-results-container {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-results-container h2 {
+    margin-bottom: 1rem;
+}
+
+.search-results-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.search-results-container li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.search-results-container img {
+    border-radius: 4px;
+}

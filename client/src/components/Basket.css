@@ -1,0 +1,41 @@
+/* src/components/Basket.css */
+.basket-container {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.basket-container h2 {
+    margin-bottom: 1rem;
+}
+
+.basket-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.basket-item img {
+    border-radius: 4px;
+}
+
+.back-to-shopping {
+    display: block;
+    margin-top: 1rem;
+    color: #ff6347;
+    text-align: center;
+}
+
+.checkout-button {
+    padding: 0.5rem;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+}

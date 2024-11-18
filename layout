@@ -1,0 +1,15 @@
+website/
+├── client/
+├── middleware/
+│   └── authenticationMiddleware.js
+├── models/
+├── node_modules/
+├── routes/
+│   └── authRoutes.js
+├── uploads/
+├── config/
+│   └── jwtConfig.js  // Example new location and name
+├── .env
+├── package-lock.json
+├── package.json
+└── server.js

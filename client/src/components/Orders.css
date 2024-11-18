@@ -1,0 +1,53 @@
+/* src/components/Orders.css */
+.orders-page {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 1200px; /* Optional: limits the max width of the container */
+    margin: 0 auto; /* Centers the container */
+}
+
+.orders-page h2 {
+    margin-bottom: 1rem;
+    color: #333; /* Subtle text color */
+}
+
+.orders-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates a responsive grid layout */
+    gap: 1rem; /* Space between grid items */
+    margin-top: 1rem;
+}
+
+.order-item {
+    background-color: #f9f9f9;
+    border: 1px solid #eee; /* Adds a light border for better item definition */
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Smooth background and transform transitions */
+}
+
+.order-item:hover {
+    background-color: #e9e9e9; /* Lighter background on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for lifted effect */
+}
+
+.back-button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem; /* Slightly more horizontal padding */
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer; /* Ensures it’s clear it’s clickable */
+    text-align: center; /* Ensures text is centered */
+    display: inline-block; /* Allows button to only take up as much space as needed */
+    text-decoration: none; /* Removes underline text decoration */
+}
+
+.back-button:hover {
+    background-color: #555; /* Darker background on hover */
+}

@@ -1,0 +1,62 @@
+/* EditProfile.css */
+
+.edit-profile-page {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 40px auto;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.edit-profile-page h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.user-details {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.user-details p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #666; /* Darker color for data */
+    margin: 8px 0;
+}
+
+.user-details p strong {
+    display: block; /* Use block to enhance readability */
+    font-size: 14px;
+    font-weight: bold;
+    color: #333; /* Make label more prominent */
+    margin-bottom: 5px; /* Space between label and data */
+}
+
+.back-button, .edit-button {
+    display: inline-block; /* Align buttons side by side */
+    width: calc(50% - 10px);
+    margin: 20px 5px 0; /* Adjusted top margin */
+    padding: 12px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover, .edit-button:hover {
+    background-color: #0056b3;
+}
+
+/* Additional styles for responsiveness and accessibility could be added as needed. */

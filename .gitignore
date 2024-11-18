@@ -1,0 +1,9 @@
+# Dependency directories
+node_modules/
+
+# Optional: other common directories/files to ignore
+.env
+dist/
+*.log
+*.cache
+*.swp

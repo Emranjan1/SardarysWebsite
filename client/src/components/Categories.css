@@ -1,0 +1,47 @@
+/* src/components/Categories.css */
+.categories-container {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.categories-container h2 {
+  margin-bottom: 1rem;
+}
+
+.categories-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.categories-container li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.categories-container button {
+  padding: 0.5rem;
+  border: none;
+  background-color: #ff6347;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.categories-container input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.categories-container .add-category {
+  padding: 0.5rem;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 4px;
+}

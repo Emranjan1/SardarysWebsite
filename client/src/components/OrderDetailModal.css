@@ -1,0 +1,75 @@
+/* OrderDetailModal.css */
+
+.order-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+.order-modal {
+    background: #7b7b7b;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.order-modal h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.order-modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgb(0, 72, 255);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.order-items-container {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #505050;
+    border: 1px solid #ccc;
+    overflow-y: auto;
+    max-height: 300px;  /* Adjust this value based on your modal size */
+    border-radius: 4px;
+}
+
+.order-item-detail {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.order-item-detail:last-child {
+    border-bottom: none;
+}
+/* OrderDetailModal.css */
+.order-modal-product-list {
+    max-height: 200px; /* Set a maximum height for the product list */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #505050;
+    border-radius: 5px;
+}

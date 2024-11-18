@@ -1,0 +1,44 @@
+/* Assuming this CSS affects the CreateProduct component */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px;
+    width: calc(33.333% - 20px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-info strong {
+    display: block;
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.product-info p {
+    font-size: 14px;
+    color: #666;
+}
+
+.product-info button {
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

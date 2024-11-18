@@ -1,0 +1,33 @@
+/* src/components/CustomerPage.css */
+.customer-page {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.customer-page h2 {
+    margin-bottom: 1rem;
+}
+
+.customer-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-button {
+    padding: 0.5rem;
+    border: none;
+    background-color: #ff6347;
+    color: #fff;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.logout-button {
+    padding: 0.5rem;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+}

@@ -32,26 +32,33 @@ const Register = () => {
     const { password, confirmPassword } = formData;
 
     if (password !== confirmPassword) {
-      setError('Passwords do not match.');
-      return;
+        setError('Passwords do not match.');
+        return;
     }
 
     if (!/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/.test(password)) {
-      setError('Password must be at least 8 characters long and include at least one letter, one number, and one special character.');
-      return;
+        setError('Password must be at least 8 characters long and include at least one letter, one number, and one special character.');
+        return;
     }
 
     try {
-      const { confirmPassword, ...userData } = formData;
-      const response = await registerUser(userData); // API should return token and user details if directly logging in users
-      if(response.token && response.userDetails) {
-        login(response.token, response.userDetails); // Update auth context
-        navigate('/customer'); // Redirect to a post-login page
-      }
+        const { confirmPassword, ...userData } = formData;
+        console.log("Sending data to server:", userData); // Log data being sent to the server
+        const response = await registerUser(userData);
+        console.log("Response from server:", response); // Log response from the server
+        if (response.token) {
+            login(response.token, response.userDetails); // Assuming these are returned from successful registration
+            navigate('/customer'); // Navigate to the customer page on successful registration
+        }
     } catch (err) {
-      setError('Registration failed. Please try again.');
+        console.log("Error during registration:", err); // Log any errors that occur
+        if (err && err.data && err.data.message) {
+            setError(err.data.message); // More specific error handling
+        } else {
+            setError('Registration failed. Please try again.'); // General error message
+        }
     }
-  };
+};
 
   return (
     <div className="register-container">

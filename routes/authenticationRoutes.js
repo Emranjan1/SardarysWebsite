@@ -55,14 +55,16 @@ router.post('/login', async (req, res) => {
 router.post('/register', async (req, res) => {
   const { firstName, lastName, email, phone, addressLine1, addressLine2, postalCode, city, country, password } = req.body;
 
-  console.log('Received registration request:', { firstName, lastName, email, phone, addressLine1, addressLine2, postalCode, city, country, password });
+  console.log('Received registration request:', req.body); // Log entire request body
 
   if (!firstName || !lastName || !email || !password) {
+    console.log('Missing required fields');
     return res.status(400).json({ message: 'First name, last name, email, and password are required.' });
   }
 
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
   if (!passwordRegex.test(password)) {
+    console.log('Password does not meet complexity requirements');
     return res.status(400).json({ message: 'Password must be at least 8 characters long and include at least one letter, one number, and one special character.' });
   }
 
@@ -70,6 +72,7 @@ router.post('/register', async (req, res) => {
     // Check if email already exists
     const existingUser = await db.User.findOne({ where: { email } });
     if (existingUser) {
+      console.log('Email already exists:', email);
       return res.status(400).json({ message: 'Email already exists.' });
     }
 
@@ -85,12 +88,10 @@ router.post('/register', async (req, res) => {
       city: city || 'London', // Default to 'London' if not provided
       country: country || 'United Kingdom', // Default to 'United Kingdom' if not provided
       password: hashedPassword,
-      isAdmin: false,
-      createdAt: new Date(),
-      updatedAt: new Date()
+      isAdmin: false
     });
 
-    console.log('User registered:', user);
+    console.log('User registered successfully:', user.toJSON()); // Logging the actual data
 
     const token = jwt.sign(
       { id: user.id, isAdmin: user.isAdmin },
@@ -100,30 +101,11 @@ router.post('/register', async (req, res) => {
 
     res.status(201).json({ token });
   } catch (error) {
-    console.error('Error during registration:', error.message);
-    if (error.errors) {
-      error.errors.forEach((err) => {
-        console.error('Validation error:', err.message);
-      });
-    }
-    console.error('Values being inserted:', {
-      firstName,
-      lastName,
-      email,
-      phone,
-      addressLine1,
-      addressLine2,
-      postalCode,
-      city: city || 'London',
-      country: country || 'United Kingdom',
-      password: 'hashedPassword', // Log the hashed password
-      isAdmin: false,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    });
-    res.status(500).json({ message: error.message });
+    console.error('Error during registration:', error);
+    res.status(500).json({ message: 'Internal server error', details: error.message });
   }
 });
+
 
 // Admin route to list all users
 router.get('/users', async (req, res) => {

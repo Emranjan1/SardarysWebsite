@@ -30,10 +30,21 @@ apiClient.interceptors.response.use(
   }
 );
 
+// api.js
 export const registerUser = async (userData) => {
-  const response = await apiClient.post('/auth/register', userData);
-  return response.data;
+  try {
+      const response = await axios.post('http://localhost:5000/api/auth/register', userData);
+      return response.data;
+  } catch (error) {
+      console.error("Error in API call:", error); // Log error details
+      if (error.response) {
+          throw error.response; // Throw the error response so it can be caught by the catch block in handleSubmit
+      } else {
+          throw new Error('Network or setup error');
+      }
+  }
 };
+
 
 export const loginUser = async (userData) => {
   const response = await apiClient.post('/auth/login', userData);

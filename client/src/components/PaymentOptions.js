@@ -7,10 +7,25 @@ const PaymentOptions = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Define the useCallback hook at the top level, before any conditional logic or early returns.
-  const handlePaymentMethodSelection = useCallback((method) => {
-    console.log('Navigating to /cardpayment');
-    navigate(`/cardpayment`, { state: { totalAmount: location.state?.totalAmount, basket: location.state?.basket } });
+   // Updated to handle different payment methods
+   const handlePaymentMethodSelection = useCallback((method) => {
+    console.log(`Navigating to payment method: ${method}`);
+    switch (method) {
+      case 'card':
+        navigate(`/cardpayment`, { state: { totalAmount: location.state?.totalAmount, basket: location.state?.basket } });
+        break;
+      case 'applePay':
+        navigate(`/applepay`, { state: { totalAmount: location.state?.totalAmount, basket: location.state?.basket } });
+        break;
+      case 'googlePay':
+        navigate(`/googlepay`, { state: { totalAmount: location.state?.totalAmount, basket: location.state?.basket } });
+        break;
+      case 'cash':
+        navigate(`/cash-on-delivery`, { state: { totalAmount: location.state?.totalAmount, basket: location.state?.basket } });
+        break;
+      default:
+        console.log('No valid payment method selected');
+    }
   }, [navigate, location.state]);
 
   // useEffect for authentication and redirection logic

@@ -41,9 +41,9 @@ const AuthenticatedApp = ({ basket, addToBasket, onOrderConfirm }) => {
                 <Route path="/categories" element={<Categories />} />
                 <Route path="/category/:id" element={<CategoryProducts addToBasket={addToBasket} basket={basket} />} />
                 <Route path="/basket" element={<Basket basket={basket} />} />
-                <Route path="/payment" element={authToken ? <PaymentOptions /> : <Navigate to="/login" replace />} />
+                <Route path="/payment" element={authToken ? <PaymentOptions onOrderConfirm={onOrderConfirm} /> : <Navigate to="/login" replace />} />
                 <Route path="/cash-on-delivery" element={authToken ? <CashOnDeliveryComponent onOrderConfirm={onOrderConfirm} /> : <Navigate to="/login" replace />} />
-                <Route path="/cardpayment" element={authToken ? <PaymentComponent /> : <Navigate to="/login" replace />} />
+                <Route path="/cardpayment" element={authToken ? <PaymentComponent onOrderConfirm={onOrderConfirm} /> : <Navigate to="/login" replace />} />
                 <Route path="/order-summary" element={authToken ? <OrderSummary /> : <Navigate to="/login" replace/> } />
                 {userDetails.isAdmin && <Route path="/adminpanel" element={<AdminPanel />} />}
                 {userDetails.isAdmin && <Route path="/add-product" element={<CreateProduct />} />}

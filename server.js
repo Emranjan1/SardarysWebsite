@@ -26,6 +26,7 @@ const customerRoutes = require('./routes/customer');
 const deliveryRoutes = require('./routes/delivery');
 const adminSettingsRoutes = require('./routes/adminSettings');
 const promoCodeRoutes = require('./routes/promoCodes');
+const paymentRoute = require('./routes/payment');
 
 
 // Use routes
@@ -40,6 +41,7 @@ app.use('/api/orders', ordersRoutes);
 app.use('/api/delivery', deliveryRoutes);
 app.use('/api/admin', adminSettingsRoutes);
 app.use('/api/promo-codes', promoCodeRoutes);
+app.use('/api/payment', paymentRoute);
 
 
 app.use('/api/*', (req, res) => {

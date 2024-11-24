@@ -255,6 +255,22 @@ export const fetchCustomerDetailsById = async (customerId) => {
   }
 };
 
+export const handleSquarePayment = async (paymentData)=> {
+  console.log('payment: ',paymentData);
+  const token = localStorage.getItem('token');
+  try {
+    const response = await apiClient.post('/payment', paymentData, {
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    return response.data;
+  } catch (error) {
+    console.log("payment failed: ", error.message);
+    throw error;
+  }
+}
 
 
 

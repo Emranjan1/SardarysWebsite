@@ -1,8 +1,10 @@
 import React, { useEffect, useCallback } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { PaymentForm, GooglePay, ApplePay } from 'react-square-web-payments-sdk';
+import { handlePaymentSubmit } from '../utils/handlePaymentSubmit';
 
-const PaymentOptions = () => {
+const PaymentOptions = ({onOrderConfirm}) => {
   const { authToken } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -13,13 +15,7 @@ const PaymentOptions = () => {
     switch (method) {
       case 'card':
         navigate(`/cardpayment`, { state: { totalAmount: location.state?.totalAmount, basket: location.state?.basket } });
-        break;
-      case 'applePay':
-        navigate(`/applepay`, { state: { totalAmount: location.state?.totalAmount, basket: location.state?.basket } });
-        break;
-      case 'googlePay':
-        navigate(`/googlepay`, { state: { totalAmount: location.state?.totalAmount, basket: location.state?.basket } });
-        break;
+      break;
       case 'cash':
         navigate(`/cash-on-delivery`, { state: { totalAmount: location.state?.totalAmount, basket: location.state?.basket } });
         break;
@@ -53,8 +49,34 @@ const PaymentOptions = () => {
     <div>
       <h1>Choose Payment Method</h1>
       <button onClick={() => handlePaymentMethodSelection('card')}>Pay with Card</button>
-      <button onClick={() => handlePaymentMethodSelection('applePay')}>Apple Pay</button>
-      <button onClick={() => handlePaymentMethodSelection('googlePay')}>Google Pay</button>
+      {/* <button onClick={() => handlePaymentMethodSelection('applePay')}>Apple Pay</button>
+      <button onClick={() => handlePaymentMethodSelection('googlePay')}>Google Pay</button> */}
+      <PaymentForm
+        applicationId={`${process.env.REACT_APP_SQUARE_APP_ID}`}
+        cardTokenizeResponseReceived={async (token, verifyBuyer) =>
+          handlePaymentSubmit(
+            token,
+            verifyBuyer,
+            { totalAmount, basket },
+            navigate,
+            onOrderConfirm
+          )
+        }
+        locationId={`${process.env.REACT_APP_SQUARE_LOCATION_ID}`}
+        
+        createPaymentRequest={() => ({
+          countryCode: "GB",
+          currencyCode: "GBP",
+          total: {
+            amount: JSON.stringify(totalAmount),
+            label: "Total",
+          },
+        })}
+      >
+        <GooglePay />
+        {/* ApplePay only renders on Apple devices (e.g: mac) */}
+        <ApplePay />
+      </PaymentForm>
       <button onClick={() => handlePaymentMethodSelection('cash')}>Cash on Delivery</button>
     </div>
   );

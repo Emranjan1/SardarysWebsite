@@ -30,7 +30,7 @@ const CashOnDeliveryComponent = ({ onOrderConfirm }) => {
         console.log("Order Details being sent:", orderDetails);  // Log the full details being sent
     
         try {
-            const response = await axios.post('http://localhost:5000/api/orders', orderDetails, {
+            const response = await axios.post(`/api/orders`, orderDetails, {
                 headers: {
                     Authorization: `Bearer ${authToken}`
                 }

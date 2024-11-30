@@ -19,7 +19,7 @@ function ChargesPromotions() {
       return;
     }
 
-    fetch('http://localhost:5000/api/admin/delivery-settings', {
+    fetch(`/api/admin/delivery-settings`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ function ChargesPromotions() {
       }
     };
 
-    fetch('http://localhost:5000/api/admin/update-settings', {
+    fetch(`/api/admin/update-settings`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

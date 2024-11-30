@@ -41,7 +41,7 @@ const AdminOrdersView = () => {
     const fetchOrders = useCallback(async () => {
         console.log('Fetching orders...');
         try {
-            const response = await fetch('http://localhost:5000/api/orders/admin', {
+            const response = await fetch(`/api/orders/admin`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,

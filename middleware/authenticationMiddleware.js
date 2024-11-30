@@ -17,7 +17,7 @@ const verifyToken = async (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, 'sardaryisanidiot!11');
     console.log('Decoded token:', decoded); // Debugging line
     const user = await db.User.findByPk(decoded.id); // Use the Sequelize findByPk method to get user by ID
     if (!user) {

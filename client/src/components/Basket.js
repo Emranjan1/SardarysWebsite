@@ -44,7 +44,7 @@ const Basket = ({ basket = [] }) => {
                     <ul>
                         {basket.map((item) => (
                             <li key={item.id} className="basket-item">
-                                <img src={`http://localhost:5000/${item.image}`} alt={item.name} width="50" />
+                                <img src={`/${item.image}`} alt={item.name} width="50" />
                                 <div>
                                     <span>{item.name}</span>
                                     <span>£{item.price.toFixed(2)}</span>

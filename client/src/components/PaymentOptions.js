@@ -52,7 +52,7 @@ const PaymentOptions = ({onOrderConfirm}) => {
       {/* <button onClick={() => handlePaymentMethodSelection('applePay')}>Apple Pay</button>
       <button onClick={() => handlePaymentMethodSelection('googlePay')}>Google Pay</button> */}
       <PaymentForm
-        applicationId={`${process.env.REACT_APP_SQUARE_APP_ID}`}
+        applicationId={`sandbox-sq0idb-4y3jJC_UJHzVh6XW9zreaw`}
         cardTokenizeResponseReceived={async (token, verifyBuyer) =>
           handlePaymentSubmit(
             token,
@@ -62,7 +62,7 @@ const PaymentOptions = ({onOrderConfirm}) => {
             onOrderConfirm
           )
         }
-        locationId={`${process.env.REACT_APP_SQUARE_LOCATION_ID}`}
+        locationId={`L8SSHTT06EVS1`}
         
         createPaymentRequest={() => ({
           countryCode: "GB",

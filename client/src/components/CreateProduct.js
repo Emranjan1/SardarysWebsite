@@ -125,7 +125,7 @@ const CreateProduct = () => {
       <div className="product-list">
         {filteredProducts.map(product => (
           <div key={product.id} className="product-item">
-            <img src={`http://localhost:5000/${product.image}`} alt={product.name} className="product-image" />
+            <img src={`/${product.image}`} alt={product.name} className="product-image" />
             <div className="product-info">
               <strong>{product.name}</strong>
               <p>£{product.price}</p>

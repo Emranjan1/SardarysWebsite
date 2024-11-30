@@ -31,7 +31,7 @@ const SearchResults = () => {
         <ul>
           {results.map((product) => (
             <li key={product.id}>
-              <img src={`http://localhost:5000/${product.image}`} alt={product.name} width="50" />
+              <img src={`/${product.image}`} alt={product.name} width="50" />
               {product.name} - ${product.price}
             </li>
           ))}
@@ -46,7 +46,7 @@ const SearchResults = () => {
           <ul>
             {suggestions.map((product) => (
               <li key={product.id}>
-                <img src={`http://localhost:5000/${product.image}`} alt={product.name} width="50" />
+                <img src={`/${product.image}`} alt={product.name} width="50" />
                 {product.name} - ${product.price}
               </li>
             ))}

@@ -33,7 +33,7 @@ const DraggableProduct = ({ id, name, price, image, index, moveProduct }) => {
       className="product-item"
       style={{ opacity: isDragging ? 0.5 : 1 }}
     >
-      <img src={`http://localhost:5000/${image}`} alt={name} className="product-image" />
+      <img src={`/${image}`} alt={name} className="product-image" />
       <p className="product-name">{name} - £{price}</p>
     </div>
   );

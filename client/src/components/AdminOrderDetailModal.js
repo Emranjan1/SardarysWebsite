@@ -8,7 +8,7 @@ const AdminOrderDetailModal = ({ order, onClose }) => {
     useEffect(() => {
         const fetchCustomerDetails = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/customer/customers/${order.customerId}/details`, {
+                const response = await fetch(`/api/customer/customers/${order.customerId}/details`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -35,7 +35,7 @@ const AdminOrderDetailModal = ({ order, onClose }) => {
     const saveChanges = async () => {
         if (orderStatus !== order.orderStatus) {
             try {
-                const response = await fetch(`http://localhost:5000/api/orders/${order.orderId}/status`, {
+                const response = await fetch(`/api/orders/${order.orderId}/status`, {
                     method: 'PUT',
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`,

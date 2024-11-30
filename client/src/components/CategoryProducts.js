@@ -51,7 +51,7 @@ const CategoryProducts = ({ addToBasket }) => {
       <ul className="product-list">
       {products.map((product) => (
   <li key={product.id} className="product-item" onClick={() => handleProductClick(product)}>
-    <img src={`http://localhost:5000/${product.image}`} alt={product.name} className="product-image" />
+    <img src={`/${product.image}`} alt={product.name} className="product-image" />
     <div className="product-info">
       <strong className="product-name">{product.name}</strong>
       <span className="product-price">£{product.price}</span>
@@ -70,7 +70,7 @@ const CategoryProducts = ({ addToBasket }) => {
   <div className="modal active">
     <div className="modal-content">
       <span className="close-modal" onClick={closeModal}>&times;</span>
-      <img src={`http://localhost:5000/${selectedProduct.image}`} alt={selectedProduct.name} className="modal-image" />
+      <img src={`/${selectedProduct.image}`} alt={selectedProduct.name} className="modal-image" />
       <h2 className="modal-name">{selectedProduct.name}</h2>
       <p className="modal-description">{selectedProduct.description}</p>
       {selectedProduct.ageVerificationRequired && (

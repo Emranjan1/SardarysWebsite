@@ -33,7 +33,7 @@ const HomePage = ({ addToBasket, basket }) => {
   return (
     <div className="homepage-container">
       <div className="intro-section">
-        <img src="http://localhost:5000/uploads/homepage.png" alt="Homepage" className="homepage-image" />
+        <img src="/uploads/homepage.png" alt="Homepage" className="homepage-image" />
         <div className="intro-text">
           <h1>Sardary's - Earl's Court</h1>
           <p>Household Goods · Grocery · Drinks</p>
@@ -49,7 +49,7 @@ const HomePage = ({ addToBasket, basket }) => {
               const firstProductImage = categoryProducts.find(product => product.isVisible)?.image;
               return (
                 <Link to={`/category/${category.id}`} key={category.id} className="category-link">
-                  {firstProductImage && <img src={`http://localhost:5000/${firstProductImage}`} alt={category.name} className="category-image" />}
+                  {firstProductImage && <img src={`/${firstProductImage}`} alt={category.name} className="category-image" />}
                   <span>{category.name}</span>
                 </Link>
               );

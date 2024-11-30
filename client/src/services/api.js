@@ -1,10 +1,8 @@
 // src/services/api.js
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api';
-
 const apiClient = axios.create({
-  baseURL: API_URL,
+  baseURL: '/api',
 });
 
 // Request interceptor to attach the token to every request if available
@@ -33,7 +31,7 @@ apiClient.interceptors.response.use(
 // api.js
 export const registerUser = async (userData) => {
   try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', userData);
+      const response = await apiClient.post('/auth/register', userData);
       return response.data;
   } catch (error) {
       console.error("Error in API call:", error); // Log error details

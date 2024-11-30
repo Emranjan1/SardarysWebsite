@@ -9,7 +9,7 @@ const StoreCardComponent = ({ customerId, onCardStored }) => {
       }
 
       try {
-        const payments = window.Square.payments(process.env.REACT_APP_SQUARE_APP_ID, process.env.REACT_APP_SQUARE_LOCATION_ID);
+        const payments = window.Square.payments('sandbox-sq0idb-4y3jJC_UJHzVh6XW9zreaw', 'L8SSHTT06EVS1');
         const card = await payments.card();
         const token = await card.tokenize();
         if (token) {

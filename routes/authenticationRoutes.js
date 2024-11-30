@@ -36,7 +36,7 @@ router.post('/login', async (req, res) => {
 
     const token = jwt.sign(
       { id: user.id, isAdmin: user.isAdmin },
-      process.env.JWT_SECRET,
+      'sardaryisanidiot!11',
       { expiresIn: '1h' }
     );
 
@@ -95,7 +95,7 @@ router.post('/register', async (req, res) => {
 
     const token = jwt.sign(
       { id: user.id, isAdmin: user.isAdmin },
-      process.env.JWT_SECRET,
+      'sardaryisanidiot!11',
       { expiresIn: '1h' }
     );
 

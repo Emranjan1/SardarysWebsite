@@ -120,7 +120,7 @@ const Products = ({ searchResults = [] }) => {
         ) : (
           products.map((product) => (
             <li key={product.id} className="product-item">
-              <img src={`http://localhost:5000/${product.image}`} alt={product.name} width="50" />
+              <img src={`/${product.image}`} alt={product.name} width="50" />
               {product.name} - £{product.price.toFixed(2)} 
             </li>
           ))

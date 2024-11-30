@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const generateToken = (user) => {
-  return jwt.sign({ id: user.id, isAdmin: user.isAdmin }, process.env.JWT_SECRET, { expiresIn: '1h' });
+  return jwt.sign({ id: user.id, isAdmin: user.isAdmin }, 'sardaryisanidiot!11', { expiresIn: '1h' });
 };
 
 const verifyToken = (req, res, next) => {
@@ -9,7 +9,7 @@ const verifyToken = (req, res, next) => {
   if (!token) return res.status(403).json({ error: 'Token is required' });
   
   try {
-    const decoded = jwt.verify(token.replace('Bearer ', ''), process.env.JWT_SECRET);
+    const decoded = jwt.verify(token.replace('Bearer ', ''), 'sardaryisanidiot!11');
     req.user = decoded;
     next();
   } catch (error) {

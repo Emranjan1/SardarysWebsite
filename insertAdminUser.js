@@ -12,7 +12,7 @@ const dbConfig = {
 
 // Admin details
 const adminEmail = 'Mohammed_sardary@hotmail.com';
-const adminPassword = 'Sardarylawda123';
+const adminPassword = 'Sardary786';
 
 const checkAndInsertAdminUser = async () => {
   let connection;
